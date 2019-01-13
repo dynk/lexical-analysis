@@ -1,0 +1,18 @@
+version: "2"
+services:
+  app:
+    container_name: lexical-server
+    restart: always
+    build: .
+    ports:
+      - "3020:3020"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo-lexical
+    image: mongo:3.5
+    command: mongod --port 27017 --bind_ip_all 
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - "27017:27017"
