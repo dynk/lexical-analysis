@@ -1,0 +1,111 @@
+[
+	{
+		"Lexicals": [
+			{
+				"value": "to"
+			},
+			{
+				"value": "got"
+			},
+			{
+				"value": "is"
+			},
+			{
+				"value": "have"
+			},
+			{
+				"value": "and"
+			},
+			{
+				"value": "although"
+			},
+			{
+				"value": "or"
+			},
+			{
+				"value": "that"
+			},
+			{
+				"value": "when"
+			},
+			{
+				"value": "while"
+			},
+			{
+				"value": "a"
+			},
+			{
+				"value": "more"
+			},
+			{
+				"value": "much"
+			},
+			{
+				"value": "neither"
+			},
+			{
+				"value": "my"
+			},
+			{
+				"value": "that"
+			},
+			{
+				"value": "the"
+			},
+			{
+				"value": "as"
+			},
+			{
+				"value": "no"
+			},
+			{
+				"value": "nor"
+			},
+			{
+				"value": "not"
+			},
+			{
+				"value": "at"
+			},
+			{
+				"value": "between"
+			},
+			{
+				"value": "in"
+			},
+			{
+				"value": "of"
+			},
+			{
+				"value": "without"
+			},
+			{
+				"value": "I"
+			},
+			{
+				"value": "you"
+			},
+			{
+				"value": "he"
+			},
+			{
+				"value": "she"
+			},
+			{
+				"value": "it"
+			},
+			{
+				"value": "we"
+			},
+			{
+				"value": "they"
+			},
+			{
+				"value": "anybody"
+			},
+			{
+				"value": "one"
+			}
+		]
+	}
+]

@@ -29,6 +29,11 @@ logger.info(`Connecting to dabatase ${mongoPathConnection}...`);
 const connect = mongoose.connect(mongoPathConnection, options);
 connect
   .then(() => logger.info(`Connection to MONGODB ${mongoPathConnection} has been established successfully.`))
+  .then(() => {
+    const populate = require('../services/populate');
+    populate.initialize();
+    return Promise.resolve();
+  })
   .catch((err) => logger.error(`Unable to connect to the database MONGODB "${mongoPathConnection}": ${err}`));
 
 module.exports = exports = connect;
