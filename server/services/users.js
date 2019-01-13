@@ -47,6 +47,27 @@ async function post(body = {}){
   }
 }
 
+async function login(req = {}){
+
+  const requideFields = ['email', 'password'];
+  const {body = {}} = req;
+  try{
+    const missingFields = findMissingFields(body, requideFields);
+    if(missingFields && missingFields.length){
+      throw new PropertyRequiredError(missingFields);
+    }
+    const userBody = pick(requideFields, req.body);
+    const userModel = await UsersModel.findByCredentials(userBody.email, userBody.password);
+    const authenticationToken = await userModel.generateAuthToken();
+    const user = userModel.toObject();
+    user.authenticationToken = authenticationToken;
+    user.id = userModel.id;
+    return {authenticationToken, user};
+  }catch(err){
+    return Promise.reject(err);
+  }
+}
+
 function handleUserError(err) {
   if(err instanceof mongoose.CastError) {
     throw new RangeError(err.message);
@@ -60,5 +81,6 @@ function handleUserError(err) {
 module.exports = {
   get,
   getById,
-  post
+  post,
+  login
 };

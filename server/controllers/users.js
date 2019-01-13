@@ -30,6 +30,16 @@ async function getById(req = {}, res) {
   }
 }
 
+async function login(req, res){
+  try{
+    const {user ,authenticationToken} = await service.login(req);
+    res.header('x-auth', authenticationToken);
+    return responseJson(res, pick(['id', 'email', 'authenticationToken'], user));
+  }catch(err) {
+    return responseErrorJson(res, 'users::login', err);
+  }
+}
+
 async function post(req, res) {
   try{
     const {user, authenticationToken} = await service.post(req.body);
@@ -43,5 +53,6 @@ async function post(req, res) {
 module.exports = {
   get,
   getById,
+  login,
   post
 };
