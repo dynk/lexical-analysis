@@ -161,8 +161,8 @@ describe('main tests', () => {
     const result = await service.calculate({dictionary, sentencesWords});
     const expexted = {
       data: {
-        sentence_ld: [ '0.33', '0.50', '0.00' ],
-        overall_ld: '0.38'
+        sentence_ld: [ '0.67', '0.50', '1.00' ],
+        overall_ld: '0.63'
       }
     };
     assert.deepEqual(expexted, result);

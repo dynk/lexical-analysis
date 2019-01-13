@@ -82,7 +82,7 @@ const  predefinedLexicals = [
     value: 'without'
   },
   {
-    value: 'I'
+    value: 'i'
   },
   {
     value: 'you'

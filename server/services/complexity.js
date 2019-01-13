@@ -4,6 +4,7 @@ async function calculateDensity(text) {
   if (!isValidText(text)) {
     return;
   }
+  text = text.toLowerCase();
   const sentences = breakInSentences(text);
   const sentencesWords = breakSentencesInWords(sentences);
   const filteredSentenceWords = filterSentenceWords(sentencesWords);
@@ -89,7 +90,7 @@ function calculate({sentencesWords, dictionary}) {
   let totalWords = 0;
   const calcPerSentence = [];
   for (const sentence of sentencesWords) {
-    const lexicals = sentence.filter(s => dictionary[s]);
+    const lexicals = sentence.filter(s => !dictionary[s]);
     const nL = lexicals.length;
     const nW = sentence.length;
     totalLexicalWords += nL;
