@@ -1,7 +1,7 @@
 
 const router = require('express').Router();
 
-router.use('v1', require('./v1'));
+router.use('/v1', require('./v1'));
 router.get('/info', info);
 
 router.use(function(req, res, next){
