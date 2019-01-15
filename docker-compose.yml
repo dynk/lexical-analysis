@@ -4,6 +4,8 @@ services:
     container_name: lexical-server
     restart: always
     build: .
+    environment:
+      - NODE_ENV=${NODE_ENV}
     ports:
       - "3020:3020"
     links:
@@ -13,6 +15,6 @@ services:
     image: mongo:3.5
     command: mongod --port 27017 --bind_ip_all 
     volumes:
-      - /data/db:/data/db
+      - /data/lexical-db:/data/db
     ports:
       - "27017:27017"

@@ -25,9 +25,6 @@ const  predefinedLexicals = [
     value: 'or'
   },
   {
-    value: 'that'
-  },
-  {
     value: 'when'
   },
   {
@@ -114,15 +111,16 @@ function get() {
   return LexicalsModel.find();
 }
 
-
 async function initialize(){
   const lexicals = await get();
-  if(!lexicals || !lexicals.length) {
-    return LexicalsModel.insertMany(predefinedLexicals).catch((e) => {
+  if(!lexicals || !lexicals.length || lexicals.length < predefinedLexicals.length) {
+    const promises = predefinedLexicals.map((l) => LexicalsModel.update({'value' : l.value }, {$set : l}, {upsert : true}).catch(() => undefined));
+    return Promise.all(promises).catch(((e) => {
       logger.error('First population failed', e);
       return Promise.resolve();
-    });
+    }));
   }
+  logger.info('Database pre populated');
   return Promise.resolve();
 }
 
